@@ -1,0 +1,23 @@
+
+name: Test EC2 Self-Hosted Runner
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check server
+        run: |
+          echo "Hello from AWS EC2!"
+          hostname
+          node -v
+          npm -v
+          nginx -v
+          pm2 -v
